@@ -5,6 +5,7 @@ const range = document.getElementById("jsRange");
 const mode = document.getElementById("jsMode");
 const saveJpgBtn = document.querySelector(".jpg");
 const savePngBtn = document.querySelector(".png");
+const clearBtn = document.querySelector(".clear");
 
 const INTIAL_COLOR ="#2c2c2c";
 const CANVAS_SIZE = 700;
@@ -89,6 +90,10 @@ function handlePngSaveClick(){
     link.click();
 }
 
+function handleClearBtn(){
+    ctx.clearRect(0,0,CANVAS_SIZE,CANVAS_SIZE);
+}
+
 if ($canvas){
     $canvas.addEventListener("mousemove", onMouseMove);
     $canvas.addEventListener("mousedown", startPainting);
@@ -117,4 +122,8 @@ if(saveJpgBtn){
 
 if(savePngBtn){
     savePngBtn.addEventListener("click",handlePngSaveClick)
+}
+
+if(clearBtn){
+    clearBtn.addEventListener('click', handleClearBtn);
 }
